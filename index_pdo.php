@@ -3,30 +3,45 @@ $bdd = new PDO(
 	'mysql:host=localhost;dbname=mon_armoire;charset=utf8', 'root','root'
 	);
 	?>
+	
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css">
+	</head>
+	<body>
 
-	<?php  
-	$reponse = $bdd->query('SELECT * FROM mes_chaussettes');
-	?>
+		<?php  
+		$reponse = $bdd->query('SELECT * FROM mes_chaussettes');
+		?>
 
-	<table>
-		<thead>
+		<table class="ui table">
+
 			<th>Id</th>
 			<th>Pointure</th>
-			<th>temp_lavage</th>
-			<th>description </th>
-			<th>couleur</th>
-			<th>date_lavage</th>
-		</thead>
-		<tr>
-			<?php 
-			while ($donnees = $reponse->fetch()) 
-			{
-				?>
-				<td><?php echo $donnees['id']; ?></td>
-				<td><?php echo $donnees['pointure']; ?></td>
-			</tr>
-		</table>
-		<?php
-	}
+			<th>Température de lavage</th>
+			<th>Description </th>
+			<th>Couleur</th>
+			<th>Date_lavage</th>
 
-	$reponse->closeCursor() ?>
+			<tr>
+				<?php 
+				while ($donnees = $reponse->fetch()) 
+				{
+					?>
+					<td><?php echo $donnees['id'];?></td>
+					<td><?php echo $donnees['pointure'];?></td>
+					<td><?php echo $donnees['temp_lavage'];?></td>
+					<td><?php echo $donnees['description']?></td>
+					<td><?php echo $donnees['couleur'] ?></td>
+					<td><?php echo $donnees['date_lavage'] ?></td>
+				</tr>
+				<?php
+			}
+
+			$reponse->closeCursor(); ?>
+		</table>
+	</body>
+	</html>
