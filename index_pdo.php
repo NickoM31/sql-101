@@ -3,7 +3,7 @@ $bdd = new PDO(
 	'mysql:host=localhost;dbname=mon_armoire;charset=utf8', 'root','root'
 	);
 	?>
-	
+
 	<!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -12,20 +12,16 @@ $bdd = new PDO(
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css">
 	</head>
 	<body>
-
 		<?php  
 		$reponse = $bdd->query('SELECT * FROM mes_chaussettes');
 		?>
-
 		<table class="ui table">
-
 			<th>Id</th>
 			<th>Pointure</th>
 			<th>Température de lavage</th>
 			<th>Description </th>
 			<th>Couleur</th>
 			<th>Date_lavage</th>
-
 			<tr>
 				<?php 
 				while ($donnees = $reponse->fetch()) 
@@ -40,8 +36,8 @@ $bdd = new PDO(
 				</tr>
 				<?php
 			}
-
 			$reponse->closeCursor(); ?>
+			
 		</table>
 	</body>
 	</html>
