@@ -37,7 +37,18 @@ $bdd = new PDO(
 				<?php
 			}
 			$reponse->closeCursor(); ?>
-			
-		</table>
-	</body>
-	</html>
+			<?php
+
+			$req = $bdd->prepare(
+				'SELECT * FROM mes_chaussettes 
+				WHERE couleur = ? '
+				);
+			$req->execute(
+				array($_GET['couleur'])
+				);
+
+				?>
+
+			</table>
+		</body>
+		</html>
