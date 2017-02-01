@@ -13,7 +13,7 @@ ORM::configure('password', 'root');
 </head>
 <body>
 	<?php 
-	$mes_chaussettes = ORM::for_table('mes_chaussettes')->where('pointure', 40)->find_many();
+	$mes_chaussettes = ORM::for_table('mes_chaussettes')->where_gt('pointure', 40)->find_many();
 	foreach ($mes_chaussettes as $chaussette) {
 		// $chaussette->couleur = 'rose';
 		// $chaussette->save();
