@@ -7,10 +7,12 @@ require'../Models/Armoire.php';
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Mes Chaussetes</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.css">
 </head>
 <body>
-	<table>
+<h1>Le roi de la chaussettes</h1>
+	<table class="ui table">
 		<th>id</th>
 		<th>description</th>
 		<th>pointure</th>
@@ -24,7 +26,7 @@ require'../Models/Armoire.php';
 			<tr>
 				
 				<td>
-					<a href= "/?id=<?= $socks->id;?>"><?= $socks->id;?></a>
+					<a href= "info1Sock.php?id=<?php echo $socks->id;?>"><?= $socks->id;?></a>
 				</td>
 				<td><?php echo $socks->description;?></td>
 				<td><?php echo $socks->pointure;?></td>

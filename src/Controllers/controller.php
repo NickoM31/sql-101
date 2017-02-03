@@ -1,10 +1,7 @@
 <?php 
-	if (!isset($_GET['id'])) {
-		$chaussettes = Armoire::all();
-		echo 'error';
-	}else{ 
-		$chaussettes = Armoire::get($_GET['id']);
-
+	public static function show($id){
+		$sock = Armoire::get($id);
+		self::view('details', ['sock'=>$sock]);
 	}
 	
 	?>
